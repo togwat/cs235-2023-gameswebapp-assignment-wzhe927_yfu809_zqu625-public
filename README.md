@@ -1,5 +1,13 @@
 # COMPSCI 235 Starter Repository for the Games WebApp Assignments
-This is a starter repository for the games webapp assignments of CompSci 235 in Semester 2, 2023.
+This is a starter repository for the games webapp assignments of CompSci 235 in Semester 2, 2023. This is a clone without commit history.
+
+Made by:
+
+Max Fu
+
+Zhaoyu Qu
+
+Jack Zhen
 
 ## Description
 
