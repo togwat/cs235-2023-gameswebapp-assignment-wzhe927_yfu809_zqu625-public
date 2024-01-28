@@ -1,0 +1,44 @@
+{% extends 'layout.html' %}
+{% block title %}{{ current_game.title }}{% endblock %}
+
+{% block css %}<link rel="stylesheet" href="../../static/css/game.css"/>{% endblock %}
+
+{% block main %}
+<div class="main-container">
+    <div class="game-container">
+    <img src="{{ current_game.image_url }}" alt="{{ current_game.title }} image">
+
+    <form action="/add_to_wishlist" method="post">
+        <input type="hidden" name="game_id" value="{{ current_game.game_id }}">
+        {% if not in_wishlist %}
+            <button type="submit" id="wishlist" class="game-button">Add this game to your wishlist</button>
+        {% else %}
+            <button type="submit" id="wishlist" class="game-button deactivated-button" disabled>This game is in your wishlist</button>
+        {% endif %}
+    </form>
+
+    <div class="text-detail-container">
+        <div class="text-container">
+            <h1>{{ current_game.title }}</h1>
+            <h2>Description</h2>
+            <p>{{ current_game.description }}</p>
+        </div>
+        <div class="game_detail">
+            <p><b>Genres:</b>
+            {% for genre in current_game.genres %}
+                {{ genre.genre_name }}{% if not loop.last %}, {% endif %}
+            {% endfor %}
+            </p>
+            <p><b>Publisher:</b> {{ current_game.publisher.publisher_name }}</p>
+            <p><b>Price:</b> ${{ current_game.price}}</p>
+            <p><b>Release Date:</b> {{ current_game.release_date_formatted() }}</p>
+
+        {% include "game/reviewSection.html" %}
+
+            <!-- Add any other information you want to display here -->
+        </div>
+    </div>
+</div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+{% block title %}Game Library{% endblock %}
+
+{% block css %}<link rel="stylesheet" href="../../static/css/library.css"/>{% endblock %}
+
+{% block main %}
+<div class="main-container">
+    <div class="library-container">
+        <h1 class="library-header">Game Library</h1>
+
+        <div class="library-item-container">
+        {% for game in games %}
+                {% with game=game %}
+                    {% include "library/libraryItem.html" %}
+                {% endwith %}
+        {% endfor %}
+        </div>
+    </div>
+
+    {% include "pagination/pagination.html" %}
+</div>
+{% endblock %}

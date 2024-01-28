@@ -1,0 +1,28 @@
+.home-slogan {
+    font-size: 64px;
+    margin: 0 auto;
+    padding: 20px 25% 80px 25%;
+
+    text-align: center;
+}
+
+.home-item {
+    width: 540px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.home-item p {
+    font-size: 24px;
+}
+
+footer {
+    display: flex;
+
+    justify-content: center;
+
+    width: 100%;
+    margin: 40px auto;
+
+    font-size: 24px;
+}

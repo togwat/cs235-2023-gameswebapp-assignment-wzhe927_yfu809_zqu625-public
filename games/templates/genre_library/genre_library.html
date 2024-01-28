@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% block title %}Genre - {{ genre_name }}{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/library.css') }}"/>{% endblock %}
+
+
+{% block main %}
+    <div class="main-container">
+        <div class="library-container">
+            <h1 class="library-header">Genre: {{ genre_name }}</h1>
+            <div class="library-item-container">
+                {% for game in games %}
+                    {% include "search/searchResultItem.html" %}
+                {% endfor %}
+            </div>
+        </div>
+
+        {% include "pagination/pagination.html" %}
+    </div>
+{% endblock %}

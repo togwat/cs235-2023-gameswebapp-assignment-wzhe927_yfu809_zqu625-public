@@ -1,0 +1,106 @@
+.profile-button {
+    border-radius: 32px;
+    padding: 8px;
+}
+
+.profile-button:hover {
+    transition: 0.25s;
+}
+
+#logout-button:hover {
+    text-shadow: 0 0 2px #eb8a7a;
+}
+
+#logout-button {
+    border: 2px solid #eb8a7a;
+    color: #eb8a7a;
+
+    padding: 8px 16px;
+}
+
+.profile-header {
+    grid-column: span 2;
+    margin-bottom: 32px;
+}
+
+.profile-header h1 {
+    font-size: 64px;
+    margin: 0 0 32px 0;
+}
+
+.main-container {
+    /*row 1 has 1 column
+    row 2 has 2 columns*/
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr);
+    grid-template-columns: 1fr 1fr;
+    margin: 0 10vw;
+    column-gap: 10vw;
+}
+
+hr {
+    grid-column: span 2;
+    width: 100%;
+}
+
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 32px 0;
+}
+
+.profile-container-header {
+    font-size: 32px;
+    margin: 0 0 32px 0;
+}
+
+.profile-review {
+    width: 460px;
+    background-color: #2F3643;
+    border-radius: 32px;
+}
+
+.profile-review h2, p {
+    margin: 16px;
+    overflow-wrap: break-word;
+}
+
+.profile-review-title {
+    margin: 0;
+}
+
+.library-item, .profile-review {
+    margin-bottom: 32px;
+}
+
+.wishlist-remove-button {
+    padding: 8px;
+    background-color: #9c0d38;
+    border: none;
+    font-size: 16px;
+    color: #d9d9d9;
+    cursor: pointer;
+    display: block;
+
+    width: 100%;
+    overflow: hidden;
+}
+
+.wishlist-remove-button:hover {
+    background-color: #a6254c;
+    text-shadow: 0 0 2px #d9d9d9;
+    transition: 0.25s;
+}
+
+.profile-button:active, #logout-button:active, .wishlist-remove-button:active {
+    text-shadow: none;
+    transition: 0.25s;
+}
+
+/*responsiveness*/
+@media screen and (max-width: 1600px) {
+    .main-container {
+        margin: 0;
+    }
+}

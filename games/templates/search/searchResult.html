@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+{% block title %}Search - {{ term }}{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="../../static/css/library.css"/>{% endblock %}
+
+{% block main %}
+    <div class="main-container">
+        <div class="library-container">
+            <h1 class="library-header">Search Result</h1>
+            <h3> Showing results matching:</h3>
+            <h3> {{ criteria }}: "{{ term }}"</h3>
+            <div class="library-item-container">
+                {% for game in games %}
+                    {% include "search/searchResultItem.html" %}
+                {% endfor %}
+            </div>
+        </div>
+
+        {% include "pagination/pagination.html" %}
+    </div>
+{% endblock %}

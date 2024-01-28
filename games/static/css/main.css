@@ -1,0 +1,26 @@
+body {
+    background-color: #252a34;
+    margin: 0;
+
+    font-family: 'Noto Sans', sans-serif;
+    color: #d9d9d9;
+}
+
+p {
+    font-size: 16px;
+}
+
+a { /*remove all default anchor text*/
+    text-decoration: inherit;
+    color: inherit;
+}
+
+.main-container {
+    padding: 40px 80px 0 280px;
+}
+
+hr {
+    margin: 0;
+    color: #4f5768;
+    border: 1px solid #4f5768;  /*for chrome*/
+}

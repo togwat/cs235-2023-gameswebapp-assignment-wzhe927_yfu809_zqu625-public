@@ -1,0 +1,18 @@
+<head>
+    <link rel="stylesheet" href="../../static/css/search.css"/>
+</head>
+
+<form role="search" method="GET" action="/search" class="search-form">
+    <div class="search-form-select-container">
+        <label for="criteria" class="search-form-label">Search by:</label>
+        <select id="criteria" name="criteria" class="search-form-select">
+            <option value="title">title</option>
+            <option value="genre">genre</option>
+            <option value="publisher">publisher</option>
+            <option value="year">year</option>
+        </select>
+    </div>
+
+    <input type="search" placeholder="Exact word or phrase" aria-label="Search" name="term" class="search-form-input">
+    <button type="submit" class="search-form-button">Search</button>
+</form>

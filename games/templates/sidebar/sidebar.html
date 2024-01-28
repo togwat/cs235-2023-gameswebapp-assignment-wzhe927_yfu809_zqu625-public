@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://kit.fontawesome.com/797b21392a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../../static/css/sidebar.css"/>
+</head>
+<body>
+<nav class="sidebar">
+    <a class="sidebar-link {% if current_page == 'profile' %}current-page-link{% endif %}" id="profile" href="{{ url_for('profile_bp.profile') }}">
+        <i class="fa-solid fa-user sidebar-link-icon" style="color: #d9d9d9;"></i>
+        <p class="sidebar-link-text">{{ username }}</p>
+    </a>
+    <a class="sidebar-link {% if current_page == 'home' %}current-page-link{% endif %}" id="home" href="{{ url_for('home_bp.home') }}">
+        <img src="../../static/assets/logo-white.svg" class="sidebar-link-icon" alt="logo">
+        <p class="sidebar-link-text">Home</p>
+    </a>
+    <a class="sidebar-link {% if current_page == 'library' %}current-page-link{% endif %}" id="library" href="{{ url_for('library_bp.library') }}">
+        <i class="fa-solid fa-book sidebar-link-icon" style="color: #d9d9d9;"></i>
+        <p class="sidebar-link-text">Library</p>
+    </a>
+    {% include "sidebar/searchBar.html" %}
+
+    <h3>Games by Genres:</h3>
+    {% for genre in genres %}
+        <a class="genre_side_bar {% if genre.genre_name == genre_name %}current-page-link{% endif %}"
+           href="{{ url_for('genre_sidebar_bp.genre', genre_name=genre.genre_name) }}">
+            {{ genre.genre_name }}
+        </a>
+    {% endfor %}
+</nav>
+</body>
+</html>

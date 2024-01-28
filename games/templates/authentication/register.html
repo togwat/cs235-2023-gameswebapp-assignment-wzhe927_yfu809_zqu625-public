@@ -1,0 +1,54 @@
+{% extends 'authentication/authentication.html' %}
+{% block title %} Register {% endblock %}
+
+{% block form_title %} Register: {% endblock %}
+{% block form_properties %} action="/register" {% endblock %}
+
+{% block form %}
+    <form class="auth-form" method="POST" action="/register">
+        {{ form.csrf_token }}
+
+        <div class="auth-form-item">
+            {% if username_fail %}
+                {{ form.username.label(class="auth-form-label") }} {{ form.username(class="auth-form-input auth-form-input-fail") }}
+                <p class="auth-form-error">Username taken.</p>
+            {% else %}
+                {{ form.username.label(class="auth-form-label") }} {{ form.username(class="auth-form-input") }}
+            {% endif %}
+        </div>
+
+        {% if password_confirm_fail %}
+            <div class="auth-form-item">
+                {{ form.password.label(class="auth-form-label") }} {{ form.password(class="auth-form-input auth-form-input-fail") }}
+                {% with errors=form.password.errors %}
+                    {% include 'authentication/auth_error.html' %}
+                {% endwith %}
+            </div>
+            <div class="auth-form-item">
+                {{ form.password_repeat.label(class="auth-form-label") }} {{ form.password_repeat(class="auth-form-input auth-form-input-fail") }}
+                {% with errors=form.password_repeat.errors %}
+                    {% include 'authentication/auth_error.html' %}
+                {% endwith %}
+            </div>
+
+        {% else %}
+            <div class="auth-form-item">
+                {{ form.password.label(class="auth-form-label") }} {{ form.password(class="auth-form-input") }}
+            </div>
+            <div class="auth-form-item">
+                {{ form.password_repeat.label(class="auth-form-label") }} {{ form.password_repeat(class="auth-form-input") }}
+            </div>
+        {% endif %}
+
+        {{ form.submit(class="auth-form-button") }}
+        <div id="auth-form-item">
+            Password requirements:
+            <ul>
+                <li>At least 7 characters</li>
+                <li>Include a number</li>
+                <li>Include an Uppercase letter</li>
+                <li>Include a lowercase letter</li>
+            </ul>
+        </div>
+    </form>
+{% endblock %}

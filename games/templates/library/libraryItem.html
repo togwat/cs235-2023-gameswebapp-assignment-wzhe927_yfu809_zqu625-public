@@ -1,0 +1,7 @@
+<a class="library-item" href="{{ url_for('game_bp.home', game_id=game.game_id) }}">
+    <h2 class="library-item-header">{{ game.title }}</h2>
+    <img class="library-item-image" src="{{ game.image_url }}" alt="game image">
+    <!--any extra info can be extended-->
+    {% block main %}
+    {% endblock %}
+</a>

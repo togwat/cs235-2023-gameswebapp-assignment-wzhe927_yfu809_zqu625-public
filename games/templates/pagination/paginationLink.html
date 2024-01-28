@@ -1,0 +1,5 @@
+<a class="pagination-link {% if current_page == id %}pagination-link-current{% endif %}"
+   id="{{ id }}"
+   href="{{ url_for(request.blueprint + ".go_to_page", page_num=id, **request.args) }}">
+    {{ id }}
+</a>

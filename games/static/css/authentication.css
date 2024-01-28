@@ -1,0 +1,88 @@
+.auth-form-header, .auth-form { /*width of the entire form*/
+    margin: 32px 384px;
+}
+
+.auth-form-header {
+    font-size: 32px;
+}
+
+.auth-form, .auth-form-item {
+    display: flex;
+    justify-content: center;
+    flex-flow: column wrap;
+}
+
+.auth-form {
+    row-gap: 20px;
+}
+
+.auth-form-item {
+    row-gap: 8px;
+}
+
+
+.auth-form-input {
+    background-color: #3f4756;
+    color: #d9d9d9;
+
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 16px;
+
+    border: 2px solid #3f4756;
+    border-radius: 32px;
+
+    padding: 8px;
+}
+
+.auth-form-input-fail {
+    border: 2px solid #eb8a7a;
+
+}
+
+.auth-form-error {
+    margin: 0;
+    color: #eb8a7a;
+}
+
+.auth-form-input:focus {
+    outline: none;
+    border: 2px solid #8cb4ff;
+    transition: 0.25s;
+}
+
+.auth-form-button {
+    background-color: #3f4756;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+
+    border: none;
+    border-radius: 32px;
+
+    padding: 8px;
+    width: 160px;
+}
+
+.auth-form-button:hover {
+    background-color: #4f5768;
+    text-shadow: 0 0 2px #d9d9d9;
+    transition: 0.25s;
+}
+
+#signup-link {
+    margin: 0;
+}
+
+.auth-form-link {
+    text-decoration: underline;
+}
+
+.auth-form-link:hover {
+    text-shadow: 0 0 2px #d9d9d9;
+    transition: 0.25s;
+}
+
+.auth-form-link:active, .auth-form-button:active {
+    text-shadow: none;
+    transition: 0.25s;
+}

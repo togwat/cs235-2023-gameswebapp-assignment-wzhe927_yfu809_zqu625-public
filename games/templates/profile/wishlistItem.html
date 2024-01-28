@@ -1,0 +1,7 @@
+{% extends "library/libraryItem.html" %}
+{% block main %}
+    <form action="/remove_from_wishlist" method="post">
+        <input type="hidden" name="game_id" value="{{ game.game_id }}">
+        <button type="submit" class="wishlist-remove-button">Remove</button>
+    </form>
+{% endblock %}

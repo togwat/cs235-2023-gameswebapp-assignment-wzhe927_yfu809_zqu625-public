@@ -1,0 +1,14 @@
+<p style="margin-bottom: 0px">
+    {{ review.user.username }} · {{ review.time_formatted() }}
+</p>
+<p style="margin-top: 0px">
+    {% for n in range(review.rating) %}
+        ★
+    {% endfor %}
+    {% for n in range(5 - review.rating) %}
+        ☆
+    {% endfor %}
+</p>
+<p>
+    {{ review.comment }}
+</p>

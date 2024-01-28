@@ -1,0 +1,106 @@
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+.text-detail-container {
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+}
+
+.text-container, .game_detail {
+    width: 45%;
+    margin: 20px 0 40px 0;
+}
+
+.text-container p{
+    color: #e9e9e9;
+    word-spacing: 2px;
+}
+
+img {
+    width: 70%;
+    margin-bottom: 20px;
+}
+
+.review-section-item {
+    margin: 16px 0;
+}
+
+#user_comment_rate, #review_text_area {
+    margin: 16px 0;
+}
+
+#review_text_area {
+    resize: none;
+    width: 100%;
+    height: 150px;
+    font-size: 16px;
+    background-color: #3f4756;
+    color: #d9d9d9;
+
+    box-sizing: border-box;
+    padding: 8px 16px;
+
+    border: 2px solid #3f4756;
+    border-radius: 32px;
+}
+
+#review_text_area:focus {
+    outline: none;
+    border: 2px solid #8cb4ff;
+    transition: 0.25s;
+}
+
+
+.game-button, #review_sorting_order {
+    padding: 12px;
+    width: 260px;
+    font-size: 16px;
+    background-color: #3f4756;
+    border: none;
+    color: #d9d9d9;
+    border-radius: 32px;
+}
+
+#review_sorting_order {
+    padding: 8px;
+    width: 140px;
+}
+
+.game-button:hover {
+    background-color: #4f5768;
+    text-shadow: 0 0 2px #d9d9d9;
+    transition: 0.25s;
+}
+
+.game-button:active {
+    text-shadow: none;
+    transition: 0.25s;
+}
+
+.deactivated-button {
+    pointer-events: none;   /*disables link*/
+    color: #999;
+}
+
+#comment_submit_button {
+    padding: 8px;
+    width: 96px;
+}
+
+.review-item-container {
+    overflow-y: scroll;
+    background-color: #2F3643;
+    border-radius: 32px;
+
+    max-height: 346px;  /*about 3 items height*/
+}
+
+.review-item-container p {
+    margin: 16px;
+    overflow-wrap: break-word;
+}

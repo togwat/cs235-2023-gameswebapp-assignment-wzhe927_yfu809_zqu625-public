@@ -1,0 +1,43 @@
+.library-header {
+    font-size: 64px;
+    margin: 0;
+}
+
+.library-item-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-column-gap: 90px;
+    grid-row-gap: 64px;
+
+    margin: 32px 0 96px 0;
+}
+
+.library-item {
+    background-color: #2F3643;
+    border-radius: 32px;
+    overflow: hidden;
+    width: 460px;
+}
+
+.library-item:hover {
+    background-color: #3f4756;
+    text-shadow: 0 0 2px #d9d9d9;
+    transition: 0.25s;
+}
+
+.library-item:active {
+    text-shadow: none;
+    transition: 0.25s;
+}
+
+.library-item-header {
+    margin: 8px 8px 8px 16px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.library-item-image {
+    display: block;
+}

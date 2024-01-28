@@ -1,0 +1,19 @@
+<head>
+    <link rel="stylesheet" href="../../static/css/pagination.css"/>
+</head>
+
+<div style="display: flex; justify-content: center">
+    <nav class="pagination-container">
+        <a class="pagination-link" id="first-page" href="{{ url_for(request.blueprint + ".go_to_page", page_num=1, **request.args) }}"><i class="fa fa-angle-double-left"></i></a>
+        <a class="pagination-link" id="prev-page" href="{{ url_for(request.blueprint + ".go_to_page", page_num=page_num - 1 if page_num > 1 else 1, **request.args) }}"><i class="fa fa-angle-left"></i></a>
+        <!--pages-->
+        {% for page in page_list %}
+            {% with id=page, current_page=page_num %}
+                {% include "pagination/paginationLink.html" %}
+            {% endwith %}
+        {% endfor %}
+
+        <a class="pagination-link" id="next-page" href="{{ url_for(request.blueprint + ".go_to_page", page_num=page_num + 1 if page_num < page_count else page_count, **request.args) }}"><i class="fa fa-angle-right"></i></a>
+        <a class="pagination-link" id="last-page" href="{{ url_for(request.blueprint + ".go_to_page", page_num=page_count, **request.args) }}"><i class="fa fa-angle-double-right"></i></a>
+    </nav>
+</div>

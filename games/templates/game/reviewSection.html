@@ -1,0 +1,93 @@
+{% block js %}
+    <script type="text/javascript">
+        function my_code() {
+            if ("{{ current_review_sorting_order }}" == "most_recent") {
+                document.getElementById("most_recent").selected = "selected";
+            } else if ("{{ current_review_sorting_order }}" == "least_recent") {
+                document.getElementById("least_recent").selected = "selected";
+            } else if ("{{ current_review_sorting_order }}" == "highest_rating") {
+                document.getElementById("highest_rating").selected = "selected";
+            } else if ("{{ current_review_sorting_order }}" == "lowest_rating") {
+                document.getElementById("lowest_rating").selected = "selected";
+            } else if ("{{ current_review_sorting_order }}" == "user_name") {
+                document.getElementById("user_name").selected = "selected";
+            }
+
+            if ("{{ comment_status }}" == "user_has_commented") {
+                document.getElementById("user_comment_function").style.display = "none";
+            } else if ("{{ comment_status }}" == "user_not_logged_in") {
+                document.getElementById("review_text_area").disabled = true;
+                document.getElementById("review_text_area").readOnly = true;
+                document.getElementById("review_text_area").placeholder = "Log in to comment";
+                document.getElementById("user_comment_rate").hidden = true;
+                document.getElementById("comment_submit_button").innerHTML = "Log in";
+                document.getElementById("myButton").onclick = function () {
+                    location.href = "/login";
+                }
+            }
+        }
+        window.onload = my_code;
+    </script>
+{% endblock %}
+
+
+<div id="review-section-container">
+    <hr>
+    <div id="overall_rating" class="review-section-item">
+        <p>
+            <b>User Rating</b> &nbsp&nbsp
+            {% for n in range(number_of_stars) %}
+                ★
+            {% endfor %}
+            {% for n in range(5 - number_of_stars) %}
+                ☆
+            {% endfor %}
+        </p>
+        <p>{{ average_rating }} average based on {{ number_of_reviews }} reviews.</p>
+    </div>
+
+    <div id="review_sorting_drop_down" class="review-section-item">
+        <form id="existing_reviews_order_form" action="{{ url_for('game_bp.home', game_id=current_game.game_id) }}"
+              method="get">
+            <label for="review_sorting_order"><b>User reviews sorted by:</b> </label>
+            <select name="review_sorting_order" id="review_sorting_order"
+                    onchange="existing_reviews_order_form.submit()">
+                <option id="most_recent" value="most_recent">Most Recent</option>
+                <option id="least_recent" value="least_recent">Least Recent</option>
+                <option id="highest_rating" value="highest_rating">Highest Rating</option>
+                <option id="lowest_rating" value="lowest_rating">Lowest Rating</option>
+                <option id="user_name" value="user_name">User Name</option>
+            </select>
+        </form>
+    </div>
+
+    <div id="existing_reviews" class="review-section-item">
+        <div class="review-item-container">
+            {% for review in reviews %}
+                {% include "game/reviewItem.html" %}
+                {% if not loop.last %}
+                    <hr>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    <hr>
+    <div id="user_comment_function" class="review-section-item">
+        <form action="{{ url_for('game_bp.home', game_id=current_game.game_id) }}" method="post">
+            <div id="user_comment_rate" class="rate">
+                <input type="radio" id="star1" name="rate" value="1" onchange="current_rating.innerHTML = '1 star'"/>
+                <input type="radio" id="star2" name="rate" value="2" onchange="current_rating.innerHTML = '2 stars'"/>
+                <input type="radio" id="star3" name="rate" value="3" checked="checked"
+                       onchange="current_rating.innerHTML = '3 stars'"/>
+                <input type="radio" id="star4" name="rate" value="4" onchange="current_rating.innerHTML = '4 stars'"/>
+                <input type="radio" id="star5" name="rate" value="5" onchange="current_rating.innerHTML = '5 stars'"/>
+                <label id="current_rating" title="text">3 stars</label><br>
+            </div>
+            <div>
+                <label for="review_text_area">Write your review:</label>
+                <textarea name="review_text" id="review_text_area" cols="20" rows="3"></textarea>
+                <button id="comment_submit_button" type="submit" class="game-button">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>

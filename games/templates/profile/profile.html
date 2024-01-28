@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+{% block title %}Profile - {{ username }}{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="../../static/css/profile.css"/>
+<link rel="stylesheet" href="../../static/css/library.css"/>
+{% endblock %}
+
+{% block main %}
+<div class="main-container">
+    <div class="profile-header">
+        <h1>Welcome, {{ username }}!</h1>
+        <a href="{{ url_for('profile_bp.logout') }}" class="profile-button" id="logout-button">Logout</a>
+    </div>
+
+    <hr>
+
+    <div class="profile-container" id="review">
+        <h2 class="profile-container-header">My reviews</h2>
+        {% for review in reviews %}
+            <div class="profile-review">
+                <h2 class="profile-review-title">{{ review.game.title }}</h2>
+                {% include "game/reviewItem.html"%}
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="profile-container" id="wishlist">
+        <h2 class="profile-container-header">My wishlist</h2>
+        {% if wishlist_games %}
+            {% for game in wishlist_games %}
+                {% include "profile/wishlistItem.html" %}
+            {% endfor %}
+        {% else %}
+            <p>Your wishlist is empty!</p>
+        {% endif %}
+    </div>
+
+</div>
+{% endblock %}
